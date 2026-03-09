@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'motion/react';
 import {
@@ -137,11 +137,10 @@ export function Login() {
                   <button
                     key={role.id}
                     onClick={() => setSelectedRole(role.id)}
-                    className={`relative p-3 rounded-xl transition-all duration-300 ${
-                      selectedRole === role.id
-                        ? 'text-white shadow-lg scale-105'
-                        : 'dark:text-zinc-500 text-slate-500 hover:dark:text-zinc-300 hover:text-slate-700'
-                    }`}
+                    className={`relative p-3 rounded-xl transition-all duration-300 ${selectedRole === role.id
+                      ? 'text-white shadow-lg scale-105'
+                      : 'dark:text-zinc-500 text-slate-500 hover:dark:text-zinc-300 hover:text-slate-700'
+                      }`}
                     style={selectedRole === role.id ? { background: role.gradient } : {}}
                   >
                     <Icon className="w-5 h-5 mx-auto mb-1" />
@@ -176,7 +175,6 @@ export function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="seu@email.com"
                     className="w-full pl-10 pr-4 py-3 rounded-xl dark:bg-zinc-800 bg-slate-50 border dark:border-zinc-700 border-slate-200 dark:text-white text-slate-900 placeholder:dark:text-zinc-600 placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all"
-                    style={{ focusRingColor: selectedRoleData.color }}
                     required
                   />
                 </div>

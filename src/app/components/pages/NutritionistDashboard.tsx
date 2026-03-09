@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Users,
   UserPlus,
@@ -162,11 +162,10 @@ export function NutritionistDashboard() {
             <motion.div
               key={patient.id}
               layout
-              className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${
-                patient.status === 'pending'
+              className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${patient.status === 'pending'
                   ? 'dark:bg-purple-500/5 bg-purple-50 dark:border-purple-500/20 border-purple-200'
                   : 'dark:bg-zinc-800/50 bg-slate-50 dark:border-zinc-700 border-slate-200'
-              }`}
+                }`}
             >
               <img
                 src={patient.avatar}

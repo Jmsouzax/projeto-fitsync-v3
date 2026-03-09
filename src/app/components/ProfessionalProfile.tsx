@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { NutritionistProfile } from './NutritionistProfile';
 import { PersonalTrainerProfile } from './PersonalTrainerProfile';
@@ -16,9 +15,5 @@ export function ProfessionalProfile() {
     return <NutritionistProfile />;
   }
 
-  if (user.role === 'personal') {
-    return <PersonalTrainerProfile />;
-  }
-
-  return null;
+  return <PersonalTrainerProfile />;
 }

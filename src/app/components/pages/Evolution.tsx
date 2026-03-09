@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   TrendingUp,
   TrendingDown,
@@ -126,11 +126,10 @@ export function Evolution() {
             <button
               key={r}
               onClick={() => setActiveRange(r)}
-              className={`px-3 py-1.5 rounded-lg text-sm transition-all ${
-                activeRange === r
+              className={`px-3 py-1.5 rounded-lg text-sm transition-all ${activeRange === r
                   ? 'text-white'
                   : 'dark:text-zinc-500 text-slate-500 dark:hover:text-zinc-300 hover:text-slate-700'
-              }`}
+                }`}
               style={
                 activeRange === r
                   ? { background: 'linear-gradient(135deg, #10b981, #3b82f6)', fontWeight: 600 }
@@ -179,8 +178,8 @@ export function Evolution() {
             </div>
           </div>
           <ResponsiveContainer width="100%" height={220} key="weight-container">
-            <AreaChart 
-              data={weightData} 
+            <AreaChart
+              data={weightData}
               margin={{ top: 5, right: 5, bottom: 5, left: 0 }}
             >
               <defs>
@@ -189,10 +188,10 @@ export function Evolution() {
                   <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis 
-                dataKey="date" 
-                tick={{ fontSize: 12, fill: axisColor }} 
-                axisLine={{ stroke: gridColor }} 
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 12, fill: axisColor }}
+                axisLine={{ stroke: gridColor }}
                 tickLine={false}
               />
               <YAxis
@@ -229,14 +228,14 @@ export function Evolution() {
             </div>
           </div>
           <ResponsiveContainer width="100%" height={220} key="bodyfat-container">
-            <LineChart 
-              data={bodyFatData} 
+            <LineChart
+              data={bodyFatData}
               margin={{ top: 5, right: 5, bottom: 5, left: 0 }}
             >
-              <XAxis 
-                dataKey="date" 
-                tick={{ fontSize: 11, fill: axisColor }} 
-                axisLine={{ stroke: gridColor }} 
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 11, fill: axisColor }}
+                axisLine={{ stroke: gridColor }}
                 tickLine={false}
               />
               <YAxis
@@ -272,9 +271,9 @@ export function Evolution() {
             </div>
           </div>
           <ResponsiveContainer width="100%" height={200} key="workouts-container">
-            <BarChart 
-              data={workoutsPerWeek} 
-              margin={{ top: 5, right: 5, bottom: 5, left: 0 }} 
+            <BarChart
+              data={workoutsPerWeek}
+              margin={{ top: 5, right: 5, bottom: 5, left: 0 }}
               barSize={20}
             >
               <defs>
@@ -283,23 +282,23 @@ export function Evolution() {
                   <stop offset="95%" stopColor="#6366f1" />
                 </linearGradient>
               </defs>
-              <XAxis 
-                dataKey="week" 
-                tick={{ fontSize: 12, fill: axisColor }} 
-                axisLine={{ stroke: gridColor }} 
+              <XAxis
+                dataKey="week"
+                tick={{ fontSize: 12, fill: axisColor }}
+                axisLine={{ stroke: gridColor }}
                 tickLine={false}
               />
-              <YAxis 
-                domain={[0, 6]} 
-                tick={{ fontSize: 12, fill: axisColor }} 
-                axisLine={{ stroke: gridColor }} 
+              <YAxis
+                domain={[0, 6]}
+                tick={{ fontSize: 12, fill: axisColor }}
+                axisLine={{ stroke: gridColor }}
                 tickLine={false}
               />
               <Tooltip content={<CustomTooltip unit=" treinos" />} />
-              <Bar 
-                dataKey="count" 
-                fill="url(#barGrad)" 
-                radius={[6, 6, 0, 0]} 
+              <Bar
+                dataKey="count"
+                fill="url(#barGrad)"
+                radius={[6, 6, 0, 0]}
                 isAnimationActive={false}
               />
             </BarChart>
@@ -313,13 +312,13 @@ export function Evolution() {
             <p className="text-xs dark:text-zinc-500 text-slate-400 mt-0.5">Distribuição muscular do mês</p>
           </div>
           <ResponsiveContainer width="100%" height={200} key="muscle-container">
-            <RadarChart 
-              data={muscleGroupData} 
+            <RadarChart
+              data={muscleGroupData}
               margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
             >
               <PolarGrid stroke={gridColor} strokeDasharray="3 3" />
-              <PolarAngleAxis 
-                dataKey="group" 
+              <PolarAngleAxis
+                dataKey="group"
                 tick={{ fontSize: 11, fill: textColor }}
               />
               <Radar
@@ -360,11 +359,10 @@ export function Evolution() {
                     {m.current}
                   </span>
                   <span
-                    className={`text-xs px-2 py-0.5 rounded-full ${
-                      m.positive
+                    className={`text-xs px-2 py-0.5 rounded-full ${m.positive
                         ? 'text-emerald-400 bg-emerald-500/10'
                         : 'text-red-400 bg-red-500/10'
-                    }`}
+                      }`}
                     style={{ fontWeight: 600 }}
                   >
                     {m.change}

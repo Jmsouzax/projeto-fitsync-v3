@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, ComponentType, CSSProperties } from 'react';
 import {
   UtensilsCrossed,
   Zap,
@@ -36,7 +36,7 @@ interface FoodItem {
 interface Meal {
   id: string;
   label: string;
-  icon: React.ElementType;
+  icon: ComponentType<{ className?: string; style?: CSSProperties }>;
   time: string;
   totalCal: number;
   items: FoodItem[];
@@ -113,8 +113,8 @@ const initialMeals: Meal[] = [
     color: '#f97316',
     expanded: false,
     items: [
-      { name: 'Cottage', qty: '150g', cal: 100, protein: 16, carbs: 5, fat: 2, done: false },
-      { name: 'Amendoim', qty: '30g', cal: 170, protein: 7, carbs: 6, fat: 14, done: false },
+      { id: 'f16', name: 'Cottage', qty: '150g', cal: 100, protein: 16, carbs: 5, fat: 2, done: false },
+      { id: 'f17', name: 'Amendoim', qty: '30g', cal: 170, protein: 7, carbs: 6, fat: 14, done: false },
     ],
   },
 ];
@@ -138,11 +138,11 @@ export function Diet() {
       prev.map((m) =>
         m.id === mealId
           ? {
-              ...m,
-              items: m.items.map((item, i) =>
-                i === idx ? { ...item, done: !item.done } : item
-              ),
-            }
+            ...m,
+            items: m.items.map((item, i) =>
+              i === idx ? { ...item, done: !item.done } : item
+            ),
+          }
           : m
       )
     );
@@ -344,16 +344,15 @@ export function Diet() {
                     className="px-5 pb-5 space-y-2"
                   >
                     <div className="pt-2 border-t dark:border-zinc-800 border-slate-100 mb-3" />
-                    {meal.items.map((food) => (
+                    {meal.items.map((food, index) => (
                       <div
                         key={food.id}
-                        className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${
-                          food.done
-                            ? 'dark:bg-emerald-500/5 bg-emerald-50 dark:border-emerald-500/20 border border-emerald-200'
-                            : 'dark:bg-zinc-800/50 bg-slate-50'
-                        }`}
+                        className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${food.done
+                          ? 'dark:bg-emerald-500/5 bg-emerald-50 dark:border-emerald-500/20 border border-emerald-200'
+                          : 'dark:bg-zinc-800/50 bg-slate-50'
+                          }`}
                       >
-                        <button onClick={() => toggleFood(meal.id, idx)} className="flex-shrink-0">
+                        <button onClick={() => toggleFood(meal.id, index)} className="flex-shrink-0">
                           {food.done ? (
                             <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                           ) : (
@@ -363,11 +362,10 @@ export function Diet() {
                         <div className="flex-1 min-w-0">
                           <button
                             onClick={() => handleOpenFood(food.name)}
-                            className={`text-sm text-left group flex items-center gap-1 hover:underline transition-colors ${
-                              food.done
-                                ? 'line-through dark:text-zinc-500 text-slate-400'
-                                : 'dark:text-zinc-200 text-slate-700 dark:hover:text-emerald-400 hover:text-emerald-600'
-                            }`}
+                            className={`text-sm text-left group flex items-center gap-1 hover:underline transition-colors ${food.done
+                              ? 'line-through dark:text-zinc-500 text-slate-400'
+                              : 'dark:text-zinc-200 text-slate-700 dark:hover:text-emerald-400 hover:text-emerald-600'
+                              }`}
                             style={{ fontWeight: 500 }}
                           >
                             {food.name}

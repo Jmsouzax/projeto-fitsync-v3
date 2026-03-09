@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Dumbbell,
   Zap,
@@ -136,22 +136,20 @@ export function Workouts() {
                 <button
                   key={day.day}
                   onClick={() => setActiveDay(i)}
-                  className={`w-full flex items-center gap-3 p-3 rounded-2xl transition-all text-left ${
-                    activeDay === i
+                  className={`w-full flex items-center gap-3 p-3 rounded-2xl transition-all text-left ${activeDay === i
                       ? 'ring-2 ring-emerald-500/30 dark:bg-emerald-500/10 bg-emerald-50'
                       : 'dark:hover:bg-zinc-800 hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   <div
-                    className={`w-9 h-9 rounded-xl flex flex-col items-center justify-center flex-shrink-0 ${
-                      day.done
+                    className={`w-9 h-9 rounded-xl flex flex-col items-center justify-center flex-shrink-0 ${day.done
                         ? 'bg-emerald-500'
                         : day.current
-                        ? ''
-                        : day.rest
-                        ? 'dark:bg-zinc-800 bg-slate-100'
-                        : 'dark:bg-zinc-800 bg-slate-100'
-                    }`}
+                          ? ''
+                          : day.rest
+                            ? 'dark:bg-zinc-800 bg-slate-100'
+                            : 'dark:bg-zinc-800 bg-slate-100'
+                      }`}
                     style={day.current ? { background: 'linear-gradient(135deg, #10b981, #3b82f6)' } : {}}
                   >
                     {day.done ? (
@@ -163,9 +161,8 @@ export function Workouts() {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-sm truncate ${
-                      day.rest ? 'dark:text-zinc-500 text-slate-400' : 'dark:text-zinc-200 text-slate-700'
-                    }`} style={{ fontWeight: day.current ? 600 : 400 }}>
+                    <p className={`text-sm truncate ${day.rest ? 'dark:text-zinc-500 text-slate-400' : 'dark:text-zinc-200 text-slate-700'
+                      }`} style={{ fontWeight: day.current ? 600 : 400 }}>
                       {day.label}
                     </p>
                     <p className="text-xs dark:text-zinc-600 text-slate-400 truncate">{day.muscles}</p>
@@ -259,11 +256,10 @@ export function Workouts() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className={`rounded-2xl border p-4 transition-all ${
-                    ex.completed
+                  className={`rounded-2xl border p-4 transition-all ${ex.completed
                       ? 'dark:bg-emerald-500/5 bg-emerald-50 dark:border-emerald-500/20 border-emerald-200'
                       : 'dark:bg-zinc-800/50 bg-slate-50 dark:border-zinc-700 border-slate-200'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-start gap-3">
                     <button onClick={() => toggleDone(ex.id)} className="mt-0.5 flex-shrink-0">
@@ -277,20 +273,18 @@ export function Workouts() {
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <button
                           onClick={() => handleOpenExercise(ex.name)}
-                          className={`text-sm text-left group flex items-center gap-1 hover:underline transition-colors ${
-                            ex.completed
+                          className={`text-sm text-left group flex items-center gap-1 hover:underline transition-colors ${ex.completed
                               ? 'line-through dark:text-zinc-500 text-slate-400'
                               : 'dark:text-white text-slate-900 dark:hover:text-emerald-400 hover:text-emerald-600'
-                          }`}
+                            }`}
                           style={{ fontWeight: 500 }}
                         >
                           {ex.name}
                           <Info className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity dark:text-zinc-500 text-slate-400" />
                         </button>
                         <span
-                          className={`text-xs px-2 py-0.5 rounded-full border ${
-                            muscleColors[ex.muscle] || ''
-                          }`}
+                          className={`text-xs px-2 py-0.5 rounded-full border ${muscleColors[ex.muscle] || ''
+                            }`}
                           style={{ fontWeight: 500 }}
                         >
                           {ex.muscle}

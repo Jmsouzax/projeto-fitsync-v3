@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Sparkles,
   Brain,
@@ -582,9 +582,8 @@ export function Dashboard() {
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className={`flex-1 h-10 rounded-lg transition-all ${
-                  i < 6 ? 'bg-cyan-500' : 'dark:bg-zinc-800 bg-slate-100'
-                }`}
+                className={`flex-1 h-10 rounded-lg transition-all ${i < 6 ? 'bg-cyan-500' : 'dark:bg-zinc-800 bg-slate-100'
+                  }`}
                 style={{
                   opacity: i < 6 ? (i < 4 ? 1 : 0.6) : 1,
                 }}
@@ -631,11 +630,10 @@ export function Dashboard() {
               <motion.div
                 key={ex.id}
                 layout
-                className={`flex items-center gap-4 p-4 rounded-2xl border transition-all duration-200 ${
-                  ex.completed
+                className={`flex items-center gap-4 p-4 rounded-2xl border transition-all duration-200 ${ex.completed
                     ? 'dark:bg-emerald-500/5 bg-emerald-50 dark:border-emerald-500/20 border-emerald-200'
                     : 'dark:bg-zinc-800/50 bg-slate-50 dark:border-zinc-700 border-slate-200'
-                }`}
+                  }`}
               >
                 <button
                   onClick={() => toggleExercise(ex.id)}
@@ -651,20 +649,18 @@ export function Dashboard() {
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <button
                       onClick={() => handleOpenExercise(ex.name)}
-                      className={`text-sm text-left hover:underline transition-colors group flex items-center gap-1 ${
-                        ex.completed
+                      className={`text-sm text-left hover:underline transition-colors group flex items-center gap-1 ${ex.completed
                           ? 'line-through dark:text-zinc-500 text-slate-400'
                           : 'dark:text-white text-slate-900 dark:hover:text-emerald-400 hover:text-emerald-600'
-                      }`}
+                        }`}
                       style={{ fontWeight: 500 }}
                     >
                       {ex.name}
                       <Info className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity dark:text-zinc-500 text-slate-400" />
                     </button>
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full border ${
-                        muscleColors[ex.muscle] || 'text-zinc-400 bg-zinc-500/10 border-zinc-500/20'
-                      }`}
+                      className={`text-xs px-2 py-0.5 rounded-full border ${muscleColors[ex.muscle] || 'text-zinc-400 bg-zinc-500/10 border-zinc-500/20'
+                        }`}
                       style={{ fontWeight: 500 }}
                     >
                       {ex.muscle}

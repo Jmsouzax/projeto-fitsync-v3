@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Bot, X, Send, Sparkles, ChevronDown, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -163,17 +163,15 @@ export function AIChat() {
                   </div>
                 )}
                 <div
-                  className={`max-w-[75%] rounded-2xl px-3 py-2.5 ${
-                    msg.role === 'user'
+                  className={`max-w-[75%] rounded-2xl px-3 py-2.5 ${msg.role === 'user'
                       ? 'bg-gradient-to-br from-emerald-500 to-blue-500 text-white rounded-tr-sm'
                       : 'dark:bg-zinc-900 bg-white dark:text-zinc-100 text-slate-800 rounded-tl-sm dark:border-zinc-800 border border-slate-200'
-                  }`}
+                    }`}
                 >
                   <p className="text-sm leading-relaxed">{msg.text}</p>
                   <p
-                    className={`text-xs mt-1 ${
-                      msg.role === 'user' ? 'text-white/70' : 'dark:text-zinc-500 text-slate-400'
-                    }`}
+                    className={`text-xs mt-1 ${msg.role === 'user' ? 'text-white/70' : 'dark:text-zinc-500 text-slate-400'
+                      }`}
                   >
                     {msg.time}
                   </p>

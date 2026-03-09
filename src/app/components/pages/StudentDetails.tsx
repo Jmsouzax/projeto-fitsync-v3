@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import {
   ArrowLeft,
@@ -161,11 +161,10 @@ export function StudentDetails() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm transition-all ${
-                activeTab === tab.id
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm transition-all ${activeTab === tab.id
                   ? 'bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-lg'
                   : 'dark:text-zinc-400 text-slate-600 hover:dark:text-white hover:text-slate-900'
-              }`}
+                }`}
               style={{ fontWeight: activeTab === tab.id ? 600 : 400 }}
             >
               <Icon className="w-4 h-4" />
@@ -279,7 +278,7 @@ export function StudentDetails() {
               <div className="dark:bg-zinc-900 bg-white rounded-3xl p-6 dark:border-zinc-800 border border-slate-200">
                 <h3 className="dark:text-white text-slate-900 mb-4">Evolução de Peso</h3>
                 <ResponsiveContainer width="100%" height={200} key="student-weight-container">
-                  <AreaChart 
+                  <AreaChart
                     data={weightProgress}
                   >
                     <defs>
@@ -288,17 +287,17 @@ export function StudentDetails() {
                         <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <XAxis 
-                      dataKey="month" 
-                      stroke="#71717a" 
-                      fontSize={12} 
+                    <XAxis
+                      dataKey="month"
+                      stroke="#71717a"
+                      fontSize={12}
                       axisLine={{ stroke: '#27272a' }}
                       tickLine={false}
                     />
-                    <YAxis 
-                      stroke="#71717a" 
-                      fontSize={12} 
-                      domain={[74, 80]} 
+                    <YAxis
+                      stroke="#71717a"
+                      fontSize={12}
+                      domain={[74, 80]}
                       axisLine={{ stroke: '#27272a' }}
                       tickLine={false}
                     />
@@ -310,13 +309,13 @@ export function StudentDetails() {
                         fontSize: '12px',
                       }}
                     />
-                    <Area 
-                      type="monotone" 
-                      dataKey="weight" 
-                      stroke="#10b981" 
-                      fillOpacity={1} 
-                      fill="url(#weightGradient)" 
-                      strokeWidth={3} 
+                    <Area
+                      type="monotone"
+                      dataKey="weight"
+                      stroke="#10b981"
+                      fillOpacity={1}
+                      fill="url(#weightGradient)"
+                      strokeWidth={3}
                       dot={false}
                       isAnimationActive={false}
                     />
@@ -328,19 +327,19 @@ export function StudentDetails() {
               <div className="dark:bg-zinc-900 bg-white rounded-3xl p-6 dark:border-zinc-800 border border-slate-200">
                 <h3 className="dark:text-white text-slate-900 mb-4">Composição Corporal</h3>
                 <ResponsiveContainer width="100%" height={200} key="student-composition-container">
-                  <LineChart 
+                  <LineChart
                     data={bodyComposition}
                   >
-                    <XAxis 
-                      dataKey="month" 
-                      stroke="#71717a" 
-                      fontSize={12} 
+                    <XAxis
+                      dataKey="month"
+                      stroke="#71717a"
+                      fontSize={12}
                       axisLine={{ stroke: '#27272a' }}
                       tickLine={false}
                     />
-                    <YAxis 
-                      stroke="#71717a" 
-                      fontSize={12} 
+                    <YAxis
+                      stroke="#71717a"
+                      fontSize={12}
                       axisLine={{ stroke: '#27272a' }}
                       tickLine={false}
                     />
@@ -353,21 +352,21 @@ export function StudentDetails() {
                       }}
                     />
                     <Legend />
-                    <Line 
-                      type="monotone" 
-                      dataKey="muscle" 
-                      stroke="#3b82f6" 
-                      strokeWidth={3} 
-                      name="Massa Muscular (kg)" 
+                    <Line
+                      type="monotone"
+                      dataKey="muscle"
+                      stroke="#3b82f6"
+                      strokeWidth={3}
+                      name="Massa Muscular (kg)"
                       dot={false}
                       isAnimationActive={false}
                     />
-                    <Line 
-                      type="monotone" 
-                      dataKey="fat" 
-                      stroke="#f59e0b" 
-                      strokeWidth={3} 
-                      name="Gordura (%)" 
+                    <Line
+                      type="monotone"
+                      dataKey="fat"
+                      stroke="#f59e0b"
+                      strokeWidth={3}
+                      name="Gordura (%)"
                       dot={false}
                       isAnimationActive={false}
                     />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   ClipboardList,
   FileText,
@@ -178,9 +178,8 @@ export function NutritionistProfile() {
                 key={patient.id}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => setSelectedPatient(patient.id)}
-                className={`dark:bg-zinc-800/50 bg-slate-50 rounded-2xl p-5 border dark:border-zinc-700 border-slate-200 cursor-pointer hover:border-emerald-500/50 transition-all ${
-                  patient.status === 'inactive' ? 'opacity-60' : ''
-                }`}
+                className={`dark:bg-zinc-800/50 bg-slate-50 rounded-2xl p-5 border dark:border-zinc-700 border-slate-200 cursor-pointer hover:border-emerald-500/50 transition-all ${patient.status === 'inactive' ? 'opacity-60' : ''
+                  }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
@@ -192,13 +191,12 @@ export function NutritionistProfile() {
                         {patient.name}
                       </p>
                       <div className="flex items-center gap-2">
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          patient.status === 'active' 
-                            ? 'bg-emerald-500/10 text-emerald-500' 
+                        <span className={`text-xs px-2 py-0.5 rounded-full ${patient.status === 'active'
+                            ? 'bg-emerald-500/10 text-emerald-500'
                             : patient.status === 'pending'
-                            ? 'bg-yellow-500/10 text-yellow-500'
-                            : 'bg-red-500/10 text-red-500'
-                        }`}>
+                              ? 'bg-yellow-500/10 text-yellow-500'
+                              : 'bg-red-500/10 text-red-500'
+                          }`}>
                           {patient.status === 'active' ? 'Ativo' : patient.status === 'pending' ? 'Pendente' : 'Inativo'}
                         </span>
                       </div>
@@ -367,11 +365,10 @@ export function NutritionistProfile() {
                       {quest.name}
                     </p>
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full ${
-                        quest.status === 'completed'
+                      className={`text-xs px-2 py-0.5 rounded-full ${quest.status === 'completed'
                           ? 'bg-emerald-500/10 text-emerald-500'
                           : 'bg-yellow-500/10 text-yellow-500'
-                      }`}
+                        }`}
                     >
                       {quest.status === 'completed' ? 'Completo' : 'Pendente'}
                     </span>
@@ -440,7 +437,7 @@ export function NutritionistProfile() {
                   💡 Dica de Especialista
                 </p>
                 <p className="text-sm dark:text-zinc-300 text-slate-700">
-                  Aplicar questionários de rastreamento a cada 30 dias aumenta a taxa de adesão em até 35%. 
+                  Aplicar questionários de rastreamento a cada 30 dias aumenta a taxa de adesão em até 35%.
                   Utilize ferramentas de auto-preenchimento para reduzir fricção e garantir dados consistentes.
                 </p>
               </div>
@@ -513,9 +510,8 @@ export function NutritionistProfile() {
                   {biomarkers.map((marker, idx) => (
                     <tr
                       key={marker.name}
-                      className={`border-b dark:border-zinc-800 border-slate-100 ${
-                        idx % 2 === 0 ? 'dark:bg-zinc-900/50 bg-white' : 'dark:bg-zinc-800/30 bg-slate-50/50'
-                      }`}
+                      className={`border-b dark:border-zinc-800 border-slate-100 ${idx % 2 === 0 ? 'dark:bg-zinc-900/50 bg-white' : 'dark:bg-zinc-800/30 bg-slate-50/50'
+                        }`}
                     >
                       <td className="px-3 py-3">
                         <p className="text-sm dark:text-white text-slate-900" style={{ fontWeight: 600 }}>
@@ -614,7 +610,7 @@ export function NutritionistProfile() {
                   💡 Dica de Especialista
                 </p>
                 <p className="text-sm dark:text-zinc-300 text-slate-700">
-                  Solicite exames de tireoide (TSH, T4 livre) e perfil lipídico a cada 90 dias para pacientes com sobrepeso. 
+                  Solicite exames de tireoide (TSH, T4 livre) e perfil lipídico a cada 90 dias para pacientes com sobrepeso.
                   A bioimpedância mensal ajuda a identificar perda de massa muscular precocemente.
                 </p>
               </div>
@@ -793,7 +789,7 @@ export function NutritionistProfile() {
                   💡 Dica de Especialista
                 </p>
                 <p className="text-sm dark:text-zinc-300 text-slate-700">
-                  Utilize a metodologia de "Equivalentes" para pacientes que viajam frequentemente. 
+                  Utilize a metodologia de "Equivalentes" para pacientes que viajam frequentemente.
                   Isso permite flexibilidade sem comprometer a aderência. Inclua sempre 2-3 opções por refeição.
                 </p>
               </div>
@@ -946,7 +942,7 @@ export function NutritionistProfile() {
                   💡 Dica de Especialista
                 </p>
                 <p className="text-sm dark:text-zinc-300 text-slate-700">
-                  Pacientes que registram água diariamente têm 42% mais chances de atingir metas de peso. 
+                  Pacientes que registram água diariamente têm 42% mais chances de atingir metas de peso.
                   Configure lembretes automáticos a cada 2 horas para maximizar aderência.
                 </p>
               </div>

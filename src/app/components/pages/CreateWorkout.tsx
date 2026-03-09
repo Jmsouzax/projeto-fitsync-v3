@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'motion/react';
 import {
@@ -115,7 +115,7 @@ export function CreateWorkout() {
   // Filtrar exercícios
   const filteredExercises = (exerciseLibrary[selectedMuscle] || []).filter((exercise) => {
     const matchesSearch = exercise.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         exercise.equipment.toLowerCase().includes(searchTerm.toLowerCase());
+      exercise.equipment.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesDifficulty = difficultyFilter === 'all' || exercise.difficulty === difficultyFilter;
     return matchesSearch && matchesDifficulty;
   });
@@ -181,11 +181,10 @@ export function CreateWorkout() {
                     <button
                       key={day.id}
                       onClick={() => setSelectedDay(day.id)}
-                      className={`p-2 rounded-lg text-xs transition-all ${
-                        selectedDay === day.id
+                      className={`p-2 rounded-lg text-xs transition-all ${selectedDay === day.id
                           ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg'
                           : 'dark:bg-zinc-800 bg-slate-100 dark:text-zinc-400 text-slate-600 hover:dark:bg-zinc-700 hover:bg-slate-200'
-                      }`}
+                        }`}
                       style={{ fontWeight: selectedDay === day.id ? 600 : 400 }}
                     >
                       {day.short}
@@ -206,11 +205,10 @@ export function CreateWorkout() {
                 <button
                   key={group.name}
                   onClick={() => setSelectedMuscle(group.name)}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
-                    selectedMuscle === group.name
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${selectedMuscle === group.name
                       ? 'shadow-lg'
                       : 'dark:bg-zinc-800/50 bg-slate-50 dark:border-zinc-700 border border-slate-200 hover:dark:border-zinc-600 hover:border-slate-300'
-                  }`}
+                    }`}
                   style={
                     selectedMuscle === group.name
                       ? { background: `linear-gradient(135deg, ${group.color}, ${group.color}dd)`, color: 'white' }
@@ -272,7 +270,7 @@ export function CreateWorkout() {
             {Object.entries(groupedByDifficulty).map(([difficulty, exercises]) => {
               if (exercises.length === 0) return null;
               const colors = difficultyColors[difficulty as keyof typeof difficultyColors];
-              
+
               return (
                 <div key={difficulty} className="dark:bg-zinc-900 bg-white rounded-3xl p-5 dark:border-zinc-800 border border-slate-200">
                   <div className="flex items-center gap-2 mb-4">

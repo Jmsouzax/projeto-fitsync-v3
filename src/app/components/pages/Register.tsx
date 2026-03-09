@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -192,8 +192,8 @@ export function Register() {
           throw new Error('Falha ao obter ID do usuário pós-registro');
         }
 
-        // Chama rotar do Backend para gerar a preferência do Mercado Pago
-        const responseMP = await fetch('http://localhost:3000/api/payments/create-preference', {
+        // Chama rota do Backend para gerar a preferência do Mercado Pago
+        const responseMP = await fetch(import.meta.env.VITE_BACKEND_URL ? `${import.meta.env.VITE_BACKEND_URL}/api/payments/create-preference` : 'https://projeto-fitsync-v3.onrender.com/api/payments/create-preference', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -237,8 +237,8 @@ export function Register() {
                 <div key={stepNum} className="flex items-center gap-2">
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center text-sm transition-all ${step >= stepNum
-                        ? 'bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-lg'
-                        : 'dark:bg-zinc-800 bg-slate-200 dark:text-zinc-500 text-slate-400'
+                      ? 'bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-lg'
+                      : 'dark:bg-zinc-800 bg-slate-200 dark:text-zinc-500 text-slate-400'
                       }`}
                     style={{ fontWeight: step >= stepNum ? 700 : 400 }}
                   >
@@ -469,8 +469,8 @@ export function Register() {
                 <button
                   onClick={() => handleInputChange('professionalType', 'personal')}
                   className={`p-6 rounded-2xl border-2 transition-all ${formData.professionalType === 'personal'
-                      ? 'border-emerald-500 dark:bg-emerald-500/10 bg-emerald-50'
-                      : 'dark:border-zinc-700 border-slate-200 hover:dark:border-zinc-600 hover:border-slate-300'
+                    ? 'border-emerald-500 dark:bg-emerald-500/10 bg-emerald-50'
+                    : 'dark:border-zinc-700 border-slate-200 hover:dark:border-zinc-600 hover:border-slate-300'
                     }`}
                 >
                   <Dumbbell className={`w-8 h-8 mx-auto mb-3 ${formData.professionalType === 'personal' ? 'text-emerald-500' : 'dark:text-zinc-500 text-slate-400'}`} />
@@ -482,8 +482,8 @@ export function Register() {
                 <button
                   onClick={() => handleInputChange('professionalType', 'nutritionist')}
                   className={`p-6 rounded-2xl border-2 transition-all ${formData.professionalType === 'nutritionist'
-                      ? 'border-emerald-500 dark:bg-emerald-500/10 bg-emerald-50'
-                      : 'dark:border-zinc-700 border-slate-200 hover:dark:border-zinc-600 hover:border-slate-300'
+                    ? 'border-emerald-500 dark:bg-emerald-500/10 bg-emerald-50'
+                    : 'dark:border-zinc-700 border-slate-200 hover:dark:border-zinc-600 hover:border-slate-300'
                     }`}
                 >
                   <Award className={`w-8 h-8 mx-auto mb-3 ${formData.professionalType === 'nutritionist' ? 'text-emerald-500' : 'dark:text-zinc-500 text-slate-400'}`} />
@@ -559,10 +559,10 @@ export function Register() {
                     key={plan.id}
                     whileHover={{ scale: 1.02 }}
                     className={`relative p-6 rounded-3xl border-2 transition-all ${plan.popular
-                        ? 'border-emerald-500 dark:bg-emerald-500/5 bg-emerald-50'
-                        : plan.bestValue
-                          ? 'border-blue-500 dark:bg-blue-500/5 bg-blue-50'
-                          : 'dark:border-zinc-800 border-slate-200 dark:bg-zinc-900 bg-white'
+                      ? 'border-emerald-500 dark:bg-emerald-500/5 bg-emerald-50'
+                      : plan.bestValue
+                        ? 'border-blue-500 dark:bg-blue-500/5 bg-blue-50'
+                        : 'dark:border-zinc-800 border-slate-200 dark:bg-zinc-900 bg-white'
                       }`}
                   >
                     {plan.popular && (
@@ -611,8 +611,8 @@ export function Register() {
                     <button
                       onClick={() => handlePlanSelect(plan.id)}
                       className={`w-full py-3 rounded-xl transition-all ${plan.popular || plan.bestValue
-                          ? 'bg-gradient-to-r from-emerald-500 to-blue-500 text-white hover:opacity-90'
-                          : 'border dark:border-zinc-700 border-slate-300 dark:text-zinc-300 text-slate-700 hover:dark:bg-zinc-800 hover:bg-slate-50'
+                        ? 'bg-gradient-to-r from-emerald-500 to-blue-500 text-white hover:opacity-90'
+                        : 'border dark:border-zinc-700 border-slate-300 dark:text-zinc-300 text-slate-700 hover:dark:bg-zinc-800 hover:bg-slate-50'
                         }`}
                       style={{ fontWeight: 600 }}
                     >

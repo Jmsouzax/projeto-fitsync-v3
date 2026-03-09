@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, ElementType } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   X,
@@ -36,7 +36,7 @@ function MiniBar({ value, color, max = 100 }: { value: number; color: string; ma
 }
 
 function MacroCircle({ label, value, unit, color, icon: Icon }: {
-  label: string; value: number; unit: string; color: string; icon: React.ElementType;
+  label: string; value: number; unit: string; color: string; icon: ElementType;
 }) {
   return (
     <div className="flex flex-col items-center gap-1.5 flex-1">

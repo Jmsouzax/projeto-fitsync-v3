@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import {
   Home,
@@ -9,7 +8,6 @@ import {
   Sun,
   Moon,
   Zap,
-  Menu,
   X,
   ChevronRight,
   LogOut,
@@ -54,11 +52,11 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
   };
 
   // Seleciona os itens de navegação baseado no role do usuário
-  const navItems = user?.role === 'personal' 
-    ? personalNavItems 
+  const navItems = user?.role === 'personal'
+    ? personalNavItems
     : user?.role === 'nutritionist'
-    ? nutritionistNavItems
-    : studentNavItems;
+      ? nutritionistNavItems
+      : studentNavItems;
 
   const roleLabels = {
     student: 'Aluno',
@@ -129,10 +127,9 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
               end={exact}
               onClick={onMobileClose}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${
-                  isActive
-                    ? 'bg-gradient-to-r from-emerald-500/10 to-blue-500/10 dark:from-emerald-500/15 dark:to-blue-500/15'
-                    : 'dark:hover:bg-zinc-900 hover:bg-slate-50'
+                `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${isActive
+                  ? 'bg-gradient-to-r from-emerald-500/10 to-blue-500/10 dark:from-emerald-500/15 dark:to-blue-500/15'
+                  : 'dark:hover:bg-zinc-900 hover:bg-slate-50'
                 }`
               }
             >
@@ -142,26 +139,23 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 rounded-r-full bg-gradient-to-b from-emerald-500 to-blue-500" />
                   )}
                   <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${
-                      isActive
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${isActive
                         ? 'bg-gradient-to-br from-emerald-500 to-blue-500 shadow-md shadow-emerald-500/20'
                         : 'dark:bg-zinc-800 bg-slate-100 dark:group-hover:bg-zinc-700 group-hover:bg-slate-200'
-                    }`}
+                      }`}
                   >
                     <Icon
-                      className={`w-4 h-4 ${
-                        isActive
+                      className={`w-4 h-4 ${isActive
                           ? 'text-white'
                           : 'dark:text-zinc-400 text-slate-500 group-hover:text-slate-700 dark:group-hover:text-zinc-200'
-                      }`}
+                        }`}
                     />
                   </div>
                   <span
-                    className={`text-sm transition-colors ${
-                      isActive
+                    className={`text-sm transition-colors ${isActive
                         ? 'dark:text-white text-slate-900'
                         : 'dark:text-zinc-400 text-slate-500 dark:group-hover:text-zinc-100 group-hover:text-slate-700'
-                    }`}
+                      }`}
                     style={{ fontWeight: isActive ? 600 : 400 }}
                   >
                     {label}
@@ -196,16 +190,14 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
             {/* Toggle Switch */}
             <button
               onClick={toggleTheme}
-              className={`relative w-12 h-6 rounded-full transition-all duration-300 focus:outline-none ${
-                theme === 'dark'
+              className={`relative w-12 h-6 rounded-full transition-all duration-300 focus:outline-none ${theme === 'dark'
                   ? 'bg-gradient-to-r from-indigo-600 to-purple-600'
                   : 'bg-gradient-to-r from-amber-400 to-orange-400'
-              }`}
+                }`}
             >
               <div
-                className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 flex items-center justify-center ${
-                  theme === 'dark' ? 'translate-x-6' : 'translate-x-0.5'
-                }`}
+                className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0.5'
+                  }`}
               >
                 {theme === 'dark' ? (
                   <Moon className="w-3 h-3 text-indigo-600" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Users,
   UserPlus,
@@ -271,9 +271,8 @@ export function PersonalTrainerProfile() {
                 key={student.id}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => setSelectedStudent(student.id)}
-                className={`dark:bg-zinc-800/50 bg-slate-50 rounded-2xl p-5 border dark:border-zinc-700 border-slate-200 cursor-pointer hover:border-emerald-500/50 transition-all ${
-                  student.status === 'inactive' ? 'opacity-60' : ''
-                }`}
+                className={`dark:bg-zinc-800/50 bg-slate-50 rounded-2xl p-5 border dark:border-zinc-700 border-slate-200 cursor-pointer hover:border-emerald-500/50 transition-all ${student.status === 'inactive' ? 'opacity-60' : ''
+                  }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
@@ -285,11 +284,10 @@ export function PersonalTrainerProfile() {
                         {student.name}
                       </p>
                       <div className="flex items-center gap-2">
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          student.status === 'active' 
-                            ? 'bg-emerald-500/10 text-emerald-500' 
+                        <span className={`text-xs px-2 py-0.5 rounded-full ${student.status === 'active'
+                            ? 'bg-emerald-500/10 text-emerald-500'
                             : 'bg-red-500/10 text-red-500'
-                        }`}>
+                          }`}>
                           {student.status === 'active' ? 'Ativo' : 'Inativo'}
                         </span>
                         <span className="text-xs dark:text-zinc-400 text-slate-500">{student.frequency}</span>
@@ -458,9 +456,8 @@ export function PersonalTrainerProfile() {
                   {exerciseLibrary.map((exercise, idx) => (
                     <tr
                       key={exercise.name}
-                      className={`border-b dark:border-zinc-800 border-slate-100 ${
-                        idx % 2 === 0 ? 'dark:bg-zinc-900/50 bg-white' : 'dark:bg-zinc-800/30 bg-slate-50/50'
-                      }`}
+                      className={`border-b dark:border-zinc-800 border-slate-100 ${idx % 2 === 0 ? 'dark:bg-zinc-900/50 bg-white' : 'dark:bg-zinc-800/30 bg-slate-50/50'
+                        }`}
                     >
                       <td className="px-4 py-3">
                         <p className="text-sm dark:text-white text-slate-900" style={{ fontWeight: 600 }}>
@@ -477,13 +474,12 @@ export function PersonalTrainerProfile() {
                       </td>
                       <td className="px-4 py-3 text-center">
                         <span
-                          className={`text-xs px-2 py-1 rounded-full ${
-                            exercise.difficulty === 'Iniciante'
+                          className={`text-xs px-2 py-1 rounded-full ${exercise.difficulty === 'Iniciante'
                               ? 'bg-green-500/10 text-green-500'
                               : exercise.difficulty === 'Intermediário'
-                              ? 'bg-blue-500/10 text-blue-500'
-                              : 'bg-purple-500/10 text-purple-500'
-                          }`}
+                                ? 'bg-blue-500/10 text-blue-500'
+                                : 'bg-purple-500/10 text-purple-500'
+                            }`}
                         >
                           {exercise.difficulty}
                         </span>
@@ -565,7 +561,7 @@ export function PersonalTrainerProfile() {
                   💡 Dica de Especialista
                 </p>
                 <p className="text-sm dark:text-zinc-300 text-slate-700">
-                  Organize exercícios por "tags" (ex: unilateral, composto, isolamento) para criar variações 
+                  Organize exercícios por "tags" (ex: unilateral, composto, isolamento) para criar variações
                   rapidamente. Utilize periodização ondulatória para maximizar ganhos de força e hipertrofia.
                 </p>
               </div>
@@ -644,9 +640,8 @@ export function PersonalTrainerProfile() {
                     return (
                       <tr
                         key={data.exercise}
-                        className={`border-b dark:border-zinc-800 border-slate-100 ${
-                          idx % 2 === 0 ? 'dark:bg-zinc-900/50 bg-white' : 'dark:bg-zinc-800/30 bg-slate-50/50'
-                        }`}
+                        className={`border-b dark:border-zinc-800 border-slate-100 ${idx % 2 === 0 ? 'dark:bg-zinc-900/50 bg-white' : 'dark:bg-zinc-800/30 bg-slate-50/50'
+                          }`}
                       >
                         <td className="px-4 py-4">
                           <p className="text-sm dark:text-white text-slate-900" style={{ fontWeight: 600 }}>
@@ -716,9 +711,8 @@ export function PersonalTrainerProfile() {
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${
-                            i < feedback.rating ? 'text-yellow-500 fill-yellow-500' : 'dark:text-zinc-600 text-slate-300'
-                          }`}
+                          className={`w-4 h-4 ${i < feedback.rating ? 'text-yellow-500 fill-yellow-500' : 'dark:text-zinc-600 text-slate-300'
+                            }`}
                         />
                       ))}
                     </div>
@@ -742,7 +736,7 @@ export function PersonalTrainerProfile() {
                   💡 Dica de Especialista
                 </p>
                 <p className="text-sm dark:text-zinc-300 text-slate-700">
-                  Monitore progressão de carga semanalmente. Aumentos de 2-5% são ideais para hipertrofia. 
+                  Monitore progressão de carga semanalmente. Aumentos de 2-5% são ideais para hipertrofia.
                   Utilize feedbacks pós-treino para identificar ajustes necessários em volume e intensidade.
                 </p>
               </div>

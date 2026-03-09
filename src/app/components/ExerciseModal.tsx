@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   X,
@@ -196,7 +196,7 @@ export function ExerciseModal({ exercise, onClose }: ExerciseModalProps) {
                       className="flex items-center gap-4 p-4 rounded-2xl"
                       style={{ background: `${accentColor}0d`, border: `1px solid ${accentColor}25` }}
                     >
-                      <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 ring-2" style={{ ringColor: accentColor }}>
+                      <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-emerald-500/30">
                         <ImageWithFallback
                           src={exercise.muscleImage}
                           alt={`Músculo: ${exercise.muscle}`}

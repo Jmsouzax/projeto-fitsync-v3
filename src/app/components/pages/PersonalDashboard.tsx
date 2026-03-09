@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import {
   Users,
@@ -160,11 +160,10 @@ export function PersonalDashboard() {
               key={student.id}
               layout
               onClick={() => student.status === 'active' && navigate(`/personal/aluno/${student.id}`)}
-              className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${
-                student.status === 'pending'
+              className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${student.status === 'pending'
                   ? 'dark:bg-orange-500/5 bg-orange-50 dark:border-orange-500/20 border-orange-200'
                   : 'dark:bg-zinc-800/50 bg-slate-50 dark:border-zinc-700 border-slate-200 cursor-pointer hover:dark:border-blue-500/50 hover:border-blue-300'
-              }`}
+                }`}
             >
               <img
                 src={student.avatar}

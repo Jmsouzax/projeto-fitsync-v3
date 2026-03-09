@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Edit3,
   Plus,
@@ -111,11 +111,10 @@ export function Profile() {
         {!isProfessional && (
           <button
             onClick={() => setEditing(!editing)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm transition-all ${
-              editing
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm transition-all ${editing
                 ? 'text-white'
                 : 'dark:bg-zinc-900 bg-white dark:border-zinc-800 border border-slate-200 dark:text-zinc-400 text-slate-600 hover:text-emerald-500'
-            }`}
+              }`}
             style={editing ? { background: 'linear-gradient(135deg, #10b981, #3b82f6)' } : {}}
           >
             <Edit3 className="w-4 h-4" />
