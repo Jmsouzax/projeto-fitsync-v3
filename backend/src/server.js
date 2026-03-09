@@ -13,6 +13,11 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Permite receber JSON (fundamental para o Supabase e MP)
 
+// Rota base (para verificar se a API está online pelo Navegador)
+app.get('/', (req, res) => {
+  res.json({ status: 'API do FitSync V3 Online e operante! 🚀' });
+});
+
 // Rotas de Autenticação
 app.post('/api/auth/register', registrarUsuario);
 
