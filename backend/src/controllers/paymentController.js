@@ -14,8 +14,10 @@ export async function criarPagamento(req, res) {
     try {
         const { userId, planTitle, price } = req.body; // Vem do Frontend quando o cliente clica em "Pagar"
 
-        // Instancia a classe Preference com nossa configuração
         const preference = new Preference(client);
+        const backendUrl = process.env.BACKEND_URL || 'https://projeto-fitsync-v3.onrender.com';
+        const frontendUrl = process.env.FRONTEND_URL || 'https://projeto-fitsync-v3.vercel.app'; // Fallback genérico para evitar erro 500
+
         const response = await preference.create({
             body: {
                 items: [
@@ -32,15 +34,14 @@ export async function criarPagamento(req, res) {
 
                 // URLs caso o fluxo seja via Checkout Pro (Site do mercadopago)
                 back_urls: {
-                    success: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/sucesso`,
-                    failure: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/falha`,
-                    pending: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/pendente`
+                    success: `${frontendUrl}/sucesso`,
+                    failure: `${frontendUrl}/falha`,
+                    pending: `${frontendUrl}/pendente`
                 },
                 auto_return: "approved",
 
                 // Configuração vital para a Rota 2 ser notificada quando o status mudar!
-                // IMPORTANTE: Deve ser uma URL pública (utilize serviços como Ngrok para testes locais)
-                notification_url: `${process.env.BACKEND_URL || 'https://seusite.com'}/api/webhook/mercadopago`
+                notification_url: `${backendUrl}/api/webhook/mercadopago`
             }
         });
 
