@@ -32,15 +32,15 @@ export async function criarPagamento(req, res) {
 
                 // URLs caso o fluxo seja via Checkout Pro (Site do mercadopago)
                 back_urls: {
-                    success: "https://seusite.com/sucesso",
-                    failure: "https://seusite.com/falha",
-                    pending: "https://seusite.com/pendente"
+                    success: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/sucesso`,
+                    failure: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/falha`,
+                    pending: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/pendente`
                 },
                 auto_return: "approved",
 
                 // Configuração vital para a Rota 2 ser notificada quando o status mudar!
                 // IMPORTANTE: Deve ser uma URL pública (utilize serviços como Ngrok para testes locais)
-                notification_url: "https://seusite.com/api/webhook/mercadopago"
+                notification_url: `${process.env.BACKEND_URL || 'https://seusite.com'}/api/webhook/mercadopago`
             }
         });
 
