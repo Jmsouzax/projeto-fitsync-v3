@@ -196,10 +196,12 @@ export function Register() {
         const responseMP = await fetch(import.meta.env.VITE_BACKEND_URL ? `${import.meta.env.VITE_BACKEND_URL}/api/payments/create-preference` : 'https://projeto-fitsync-v3.onrender.com/api/payments/create-preference', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          // SEGURANÇA: enviamos apenas o id do plano. O título e o PREÇO são
+          // definidos no backend (backend/src/config/plans.js). Nunca confie
+          // no preço vindo do cliente.
           body: JSON.stringify({
             userId: userObj.id,
-            planTitle: `FitSync - Plano ${selectedPlan.name}`,
-            price: selectedPlan.price
+            planId: selectedPlan.id
           })
         });
 

@@ -9,8 +9,23 @@ dotenv.config();
 
 const app = express();
 
-// Middlewares essenciais
-app.use(cors());
+// CORS restrito: apenas as origens do frontend podem chamar a API.
+// Configure FRONTEND_URL no .env (aceita várias origens separadas por vírgula).
+const allowedOrigins = (process.env.FRONTEND_URL || 'https://projeto-fitsync-v3.vercel.app')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+app.use(cors({
+  origin(origin, callback) {
+    // Sem origin = ferramentas server-to-server (curl, health checks, webhook do MP).
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error('Origem não permitida pelo CORS'));
+  },
+}));
+
 app.use(express.json()); // Permite receber JSON (fundamental para o Supabase e MP)
 
 // Rota base (para verificar se a API está online pelo Navegador)
